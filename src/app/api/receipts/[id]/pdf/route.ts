@@ -23,6 +23,7 @@ export async function GET(
       emailAddress: receipt.emailAddress,
       paymentMode: receipt.paymentMode,
       paymentModeOther: receipt.paymentModeOther,
+      currency: receipt.currency || 'PKR',
       isInstallment: receipt.isInstallment,
       amountPaid: receipt.amountPaid,
       remainingAmount: receipt.remainingAmount,

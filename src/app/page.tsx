@@ -124,9 +124,11 @@ export default function HomePage() {
       <header className="border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue text-white font-bold text-lg">
-              HH
-            </div>
+            <img
+              src="/healthcare-hustlers-logo.png"
+              alt="Healthcare Hustlers"
+              className="h-10 w-auto"
+            />
             <div>
               <h1 className="text-lg font-bold text-brand-dark">
                 Healthcare Hustlers

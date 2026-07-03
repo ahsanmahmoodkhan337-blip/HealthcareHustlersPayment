@@ -1,9 +1,9 @@
 declare module 'pdfmake/build/pdfmake' {
   interface PdfMakeDoc {
-    getBuffer(callback: (err: Error | null, buffer: Uint8Array) => void): void
-    getBase64(callback: (err: Error | null, base64: string) => void): void
-    getBlob(callback: (err: Error | null, blob: Blob) => void): void
-    getDataUrl(callback: (err: Error | null, dataUrl: string) => void): void
+    getBuffer(callback: (buffer: Buffer) => void): void
+    getBase64(callback: (base64: string) => void): void
+    getBlob(callback: (blob: Blob) => void): void
+    getDataUrl(callback: (dataUrl: string) => void): void
     download(defaultFilename?: string, cb?: () => void): void
     open(): void
     print(): void
