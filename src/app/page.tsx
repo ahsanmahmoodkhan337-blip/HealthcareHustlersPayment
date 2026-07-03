@@ -117,16 +117,16 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-navy-50 via-white to-teal-50">
+    <div className="min-h-dvh bg-gradient-to-br from-brand-light via-white to-brand-light">
       {/* Header */}
       <header className="border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600 text-white font-bold text-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue text-white font-bold text-lg">
               HH
             </div>
             <div>
-              <h1 className="text-lg font-bold text-navy-900">
+              <h1 className="text-lg font-bold text-brand-dark">
                 Healthcare Hustlers
               </h1>
               <p className="text-xs text-gray-500">Invoice Portal</p>
@@ -138,7 +138,7 @@ export default function HomePage() {
       {/* Main Form */}
       <main className="mx-auto max-w-2xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-brand-dark sm:text-3xl">
             Generate Your Payment Receipt
           </h2>
           <p className="mt-2 text-gray-600">
@@ -244,21 +244,21 @@ export default function HomePage() {
                 Are you paying in installments? <span className="text-red-500">*</span>
               </span>
               <div className="mt-2 flex gap-4">
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-700">
+                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-brand-blue has-[:checked]:bg-blue-50 has-[:checked]:text-brand-blue">
                   <input
                     type="radio"
                     value="no"
                     {...register("isInstallment")}
-                    className="h-4 w-4 accent-teal-600"
+                    className="h-4 w-4 accent-brand-blue"
                   />
                   No
                 </label>
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-700">
+                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-brand-blue has-[:checked]:bg-blue-50 has-[:checked]:text-brand-blue">
                   <input
                     type="radio"
                     value="yes"
                     {...register("isInstallment")}
-                    className="h-4 w-4 accent-teal-600"
+                    className="h-4 w-4 accent-brand-blue"
                   />
                   Yes
                 </label>
@@ -342,8 +342,8 @@ export default function HomePage() {
                     <p className="mt-1 text-xs text-red-500">{errors.remainingAmount.message}</p>
                   )}
                 </div>
-                <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3">
-                  <p className="text-sm text-teal-800">
+                <div className="rounded-lg border border-brand-blue/20 bg-blue-50 px-4 py-3">
+                  <p className="text-sm text-brand-blue">
                     Your next installment is due on:{" "}
                     <span className="font-bold">{nextDueDate}</span>
                   </p>

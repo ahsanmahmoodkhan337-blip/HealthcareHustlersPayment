@@ -30,9 +30,7 @@ export async function GET(
       nextDueDate: receipt.nextDueDate,
     })
 
-    const blob = new Blob([pdfBuffer], { type: 'application/pdf' })
-
-    return new NextResponse(blob, {
+    return new NextResponse(pdfBuffer as unknown as BodyInit, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
