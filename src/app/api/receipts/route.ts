@@ -57,6 +57,7 @@ export async function POST(request: NextRequest) {
         emailAddress: data.emailAddress,
         paymentMode: data.paymentMode,
         paymentModeOther: data.paymentModeOther || null,
+        currency: data.currency || 'PKR',
         isInstallment: data.isInstallment,
         amountPaid: data.amountPaid,
         remainingAmount: data.remainingAmount ?? 0,
