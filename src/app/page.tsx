@@ -25,6 +25,7 @@ export default function HomePage() {
 
   const modeOfPayment = watch("modeOfPayment");
   const isInstallment = watch("isInstallment");
+  const currency = watch("currency");
 
   const nextDueDate = useMemo(() => {
     const date = new Date();
@@ -63,6 +64,7 @@ export default function HomePage() {
         phoneNumber: data.phoneNumber,
         emailAddress: data.email,
         paymentMode,
+        currency: data.currency,
         isInstallment: data.isInstallment === "yes",
         paymentDate: new Date().toISOString(),
       };
@@ -199,6 +201,21 @@ export default function HomePage() {
               )}
             </div>
 
+            {/* Currency Selector */}
+            <div>
+              <label htmlFor="currency" className="form-label">
+                Currency <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="currency"
+                {...register("currency")}
+                className="input-field"
+              >
+                <option value="PKR">PKR (Pakistani Rupee)</option>
+                <option value="USD">USD (US Dollar)</option>
+              </select>
+            </div>
+
             {/* Mode of Payment */}
             <div>
               <label htmlFor="modeOfPayment" className="form-label">
@@ -276,7 +293,7 @@ export default function HomePage() {
                     How much payment is done? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="amountPaid"
                       type="number"
@@ -307,7 +324,7 @@ export default function HomePage() {
                     1st installment paid? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="firstInstallmentPaid"
                       type="number"
@@ -327,7 +344,7 @@ export default function HomePage() {
                     Remaining amount? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="remainingAmount"
                       type="number"

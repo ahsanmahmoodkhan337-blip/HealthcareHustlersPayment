@@ -17,6 +17,7 @@ export const createReceiptSchema = z.object({
   emailAddress: z.string().email("Invalid email address"),
   paymentMode: z.enum(["BANK", "EASYPAISA", "PAYPAL", "OTHER"]),
   paymentModeOther: z.string().optional().nullable(),
+  currency: z.enum(["PKR", "USD"]).default("PKR"),
   isInstallment: z.boolean().default(false),
   amountPaid: z.number().positive("Amount must be positive"),
   remainingAmount: z.number().min(0).default(0).optional().nullable(),
@@ -34,12 +35,16 @@ export const searchReceiptSchema = z.object({
 // ============================================================
 
 const paymentModeOptions = ["Bank Transfer", "EasyPaisa", "PayPal", "Other"] as const;
+const currencyOptions = ["PKR", "USD"] as const;
 
 export const formSchema = z
   .object({
     fullName: z.string().min(1, "Full name is required").max(100),
     phoneNumber: z.string().min(1, "Phone number is required").max(20),
     email: z.string().email("Invalid email address"),
+    currency: z.enum(currencyOptions, {
+      required_error: "Please select a currency",
+    }),
     modeOfPayment: z.enum(paymentModeOptions, {
       required_error: "Please select a payment mode",
     }),
