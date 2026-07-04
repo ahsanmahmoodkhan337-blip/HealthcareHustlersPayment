@@ -25,6 +25,7 @@ export default function HomePage() {
 
   const modeOfPayment = watch("modeOfPayment");
   const isInstallment = watch("isInstallment");
+  const currency = watch("currency");
 
   const nextDueDate = useMemo(() => {
     const date = new Date();
@@ -63,6 +64,7 @@ export default function HomePage() {
         phoneNumber: data.phoneNumber,
         emailAddress: data.email,
         paymentMode,
+        currency: data.currency,
         isInstallment: data.isInstallment === "yes",
         paymentDate: new Date().toISOString(),
       };
@@ -117,28 +119,36 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-navy-50 via-white to-teal-50">
+    <div className="min-h-dvh bg-gradient-to-br from-brand-light via-white to-brand-light">
       {/* Header */}
       <header className="border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600 text-white font-bold text-lg">
-              HH
-            </div>
+            <img
+              src="/healthcare-hustlers-logo.png"
+              alt="Healthcare Hustlers"
+              className="h-10 w-auto"
+            />
             <div>
-              <h1 className="text-lg font-bold text-navy-900">
+              <h1 className="text-lg font-bold text-brand-dark">
                 Healthcare Hustlers
               </h1>
               <p className="text-xs text-gray-500">Invoice Portal</p>
             </div>
           </div>
+          <a
+            href="/admin/login"
+            className="text-xs font-medium text-brand-blue hover:underline"
+          >
+            Admin Portal
+          </a>
         </div>
       </header>
 
       {/* Main Form */}
       <main className="mx-auto max-w-2xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-brand-dark sm:text-3xl">
             Generate Your Payment Receipt
           </h2>
           <p className="mt-2 text-gray-600">
@@ -199,6 +209,21 @@ export default function HomePage() {
               )}
             </div>
 
+            {/* Currency Selector */}
+            <div>
+              <label htmlFor="currency" className="form-label">
+                Currency <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="currency"
+                {...register("currency")}
+                className="input-field"
+              >
+                <option value="PKR">PKR (Pakistani Rupee)</option>
+                <option value="USD">USD (US Dollar)</option>
+              </select>
+            </div>
+
             {/* Mode of Payment */}
             <div>
               <label htmlFor="modeOfPayment" className="form-label">
@@ -244,21 +269,21 @@ export default function HomePage() {
                 Are you paying in installments? <span className="text-red-500">*</span>
               </span>
               <div className="mt-2 flex gap-4">
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-700">
+                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-brand-blue has-[:checked]:bg-blue-50 has-[:checked]:text-brand-blue">
                   <input
                     type="radio"
                     value="no"
                     {...register("isInstallment")}
-                    className="h-4 w-4 accent-teal-600"
+                    className="h-4 w-4 accent-brand-blue"
                   />
                   No
                 </label>
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-700">
+                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition-all has-[:checked]:border-brand-blue has-[:checked]:bg-blue-50 has-[:checked]:text-brand-blue">
                   <input
                     type="radio"
                     value="yes"
                     {...register("isInstallment")}
-                    className="h-4 w-4 accent-teal-600"
+                    className="h-4 w-4 accent-brand-blue"
                   />
                   Yes
                 </label>
@@ -276,7 +301,7 @@ export default function HomePage() {
                     How much payment is done? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="amountPaid"
                       type="number"
@@ -307,7 +332,7 @@ export default function HomePage() {
                     1st installment paid? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="firstInstallmentPaid"
                       type="number"
@@ -327,7 +352,7 @@ export default function HomePage() {
                     Remaining amount? <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">PKR</span>
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500">{currency}</span>
                     <input
                       id="remainingAmount"
                       type="number"
@@ -342,8 +367,8 @@ export default function HomePage() {
                     <p className="mt-1 text-xs text-red-500">{errors.remainingAmount.message}</p>
                   )}
                 </div>
-                <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3">
-                  <p className="text-sm text-teal-800">
+                <div className="rounded-lg border border-brand-blue/20 bg-blue-50 px-4 py-3">
+                  <p className="text-sm text-brand-blue">
                     Your next installment is due on:{" "}
                     <span className="font-bold">{nextDueDate}</span>
                   </p>
@@ -368,6 +393,8 @@ export default function HomePage() {
         </form>
 
         <footer className="mt-12 text-center text-xs text-gray-400">
+          <a href="/admin/login" className="text-brand-blue hover:underline">Admin Portal</a>
+          <span className="mx-2">&middot;</span>
           &copy; {new Date().getFullYear()} Healthcare Hustlers. All rights reserved.
         </footer>
       </main>

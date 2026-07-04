@@ -37,13 +37,15 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-gradient-to-br from-navy-50 via-white to-teal-50 px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-gradient-to-br from-brand-light via-white to-brand-light px-4">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-teal-600 text-white text-2xl font-bold">
-            HH
-          </div>
-          <h1 className="text-2xl font-bold text-navy-900">
+          <img
+            src="/healthcare-hustlers-logo.png"
+            alt="Healthcare Hustlers"
+            className="mx-auto mb-4 h-14 w-auto"
+          />
+          <h1 className="text-2xl font-bold text-brand-dark">
             Admin Dashboard
           </h1>
           <p className="mt-1 text-sm text-gray-500">

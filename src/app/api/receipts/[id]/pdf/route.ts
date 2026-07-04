@@ -23,6 +23,7 @@ export async function GET(
       emailAddress: receipt.emailAddress,
       paymentMode: receipt.paymentMode,
       paymentModeOther: receipt.paymentModeOther,
+      currency: receipt.currency || 'PKR',
       isInstallment: receipt.isInstallment,
       amountPaid: receipt.amountPaid,
       remainingAmount: receipt.remainingAmount,
@@ -30,9 +31,7 @@ export async function GET(
       nextDueDate: receipt.nextDueDate,
     })
 
-    const blob = new Blob([pdfBuffer], { type: 'application/pdf' })
-
-    return new NextResponse(blob, {
+    return new NextResponse(pdfBuffer as unknown as BodyInit, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
