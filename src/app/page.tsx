@@ -138,7 +138,7 @@ export default function HomePage() {
           </div>
           <a
             href="/admin/login"
-            className="rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-brand-blue hover:text-brand-blue"
+            className="text-xs font-medium text-brand-blue hover:underline"
           >
             Admin Portal
           </a>
@@ -393,6 +393,8 @@ export default function HomePage() {
         </form>
 
         <footer className="mt-12 text-center text-xs text-gray-400">
+          <a href="/admin/login" className="text-brand-blue hover:underline">Admin Portal</a>
+          <span className="mx-2">&middot;</span>
           &copy; {new Date().getFullYear()} Healthcare Hustlers. All rights reserved.
         </footer>
       </main>
