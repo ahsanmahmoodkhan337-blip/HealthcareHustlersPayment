@@ -136,6 +136,12 @@ export default function HomePage() {
               <p className="text-xs text-gray-500">Invoice Portal</p>
             </div>
           </div>
+          <a
+            href="/admin/login"
+            className="rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:border-brand-blue hover:text-brand-blue"
+          >
+            Admin Portal
+          </a>
         </div>
       </header>
 
